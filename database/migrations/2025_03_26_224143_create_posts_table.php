@@ -11,18 +11,22 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
+
+
+        
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title',500);
             $table->string('slug',500);
-            $table->text('description')->nullable();
-            $table->text('content')->nullable();
+            $table->string('description')->nullable();
+            $table->string('content')->nullable();
+            $table->string('image')->nullable();
             $table->enum('posted', ['yes','not'])->default('not');
-            $table->foreignId('category_id')->constrained()
-                ->onDelete('cascade');
-            $table->string('image');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps(); 
         });
+
+        
     }
 
     /**
@@ -30,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('posts');
     }
 };

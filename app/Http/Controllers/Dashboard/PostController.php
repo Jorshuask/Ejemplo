@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Types\Model\Posts;
 
 class PostController extends Controller
 {
@@ -13,30 +12,19 @@ class PostController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    { 
-        //variable = modelo::find(1)
-        $post = Post::find(1);
+    {
 
-        if (!$post) {
-            dd("Post no encontrado");
-        }
-        
-        $post->title = 'title new';
-        $post->save();
-        
-        dd($post);
-    // detiene el resto del codigo
-        // Post::create(
-        //     [
-        //         'title' => 'test title',                  
-        //         'slug' => 'test slug',
-        //         'content' => 'test content', 
-        //         'category_id' => 1,
-        //         'description' => 'test description',
-        //         'posted' => 'not',
-        //         'image' => 'test image',
-        //     ]
-        // );
+        Post::create(
+            [
+                'title' => 'test title',
+                'slug' => 'test slug',
+                'category_id' => 1,
+                'description' => 'test description',
+                'content' => 'test content',
+                'posted' => 'not',
+                'image' => 'test image',
+            ]
+        );
         return 'index';
     }
 
