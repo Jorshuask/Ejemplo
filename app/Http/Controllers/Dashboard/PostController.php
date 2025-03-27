@@ -13,7 +13,12 @@ class PostController extends Controller
      */
     public function index()
     {
+        $post = Post::find(3);
+        dd($post->category);
+        return 'index';
 
+        /*
+        //Crear un registro
         Post::create(
             [
                 'title' => 'test title',
@@ -25,7 +30,27 @@ class PostController extends Controller
                 'image' => 'test image',
             ]
         );
-        return 'index';
+
+
+
+        //actualizar un registro
+
+        $post = Post::find(3);
+
+        $post->update(
+            [
+                        'title' => 'test new title',
+                        'slug' => 'test slug',
+            ]
+        );
+
+
+        // borrar un registro
+        $post = Post::find(2);
+
+        $post->delete();
+
+        */
     }
 
     /**

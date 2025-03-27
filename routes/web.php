@@ -14,6 +14,18 @@ Route::get('/Master', function () {
 
 Route::resource('post', PostController::class);
 
+
+Route::get('/texto', function () {
+    return response("Hola, este es un texto de respuesta");
+});
+
+Route::get('/json', function () {
+    return response()->json([
+        'mensaje' => 'Respuesta en JSON',
+        'estado' => 'exitoso'
+    ]);
+});
+ 
 /*
 
 Route::get('/Pagina1', function () {
