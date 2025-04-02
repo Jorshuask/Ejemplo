@@ -19,12 +19,22 @@ Route::get('/texto', function () {
     return response("Hola, este es un texto de respuesta");
 });
 
+Route::get('/', function () {
+    return view('index');
+});
+
+Route::get('/pagina1', function () {
+    return view('pagina1');
+});
+
+
 Route::get('/json', function () {
     return response()->json([
         'mensaje' => 'Respuesta en JSON',
         'estado' => 'exitoso'
     ]);
 });
+
  
 /*
 

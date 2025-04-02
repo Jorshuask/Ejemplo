@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <center><h1>Paginas Numeradas</h1></center>
+    <center><h1>Dashboard</h1></center>
 
-    @yield('conten')
+    @yield('content')
 
     <section>
         @yield('moreconten') 
